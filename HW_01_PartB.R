@@ -31,91 +31,101 @@ D
  D[,2]
 
 #7 Extract the third row of D
- 
+ D[3,]
 
 #8 Extract the element of D that equals 33
- 
+ D[D == 33]
 
 #9 Extract the element of D that equals 7
- 
+ D[D == 7]
 
 #10 How many rows does D have?
- 
+ nrow(D)
 
 #11 How many columns does D have?
- 
+ ncol(D)
 
 #12 Extract all values of B greater than 7
- 
+ B[B > 7]
 
 #13 Extract values of A less than 5 or greater than 11
- 
+ A[ A < 5 | A > 11]
 
 #14 Extract values of A greater than 5 and less than 11
- 
+ A[A < 11 & A > 5]
+
 
 #15 What is the mean of A?
- 
+ mean(A)
 
 #16 What is the median of B?
- 
+ median(B)
 
 #17 What is the difference between the mean of A and the median of B?
- 
+ mean(A) - median(B)
 
 #18 Remove row 4 from D
- 
+ D[-4]
 
 #19 Generate a vector with a length of 8 that contains the numbers 8, 9, 10, 11 repeated 
- 
+ myvector <- c(rep(8:11, length.out = 8))
+ myvector
 
 #20 What is the square root of 4096?
+ sqrt(4096)
  
 
 #21 What is 7 raised to the power of 7?
- 
+ 7^7
 
 #22 What is 8 plus 2 times 27 divided by 4?
- 
+ (8+2) * (27/4)
 
 #23 Is 4 raised to the power of 3 greater than 27 times 3?
- 
+ (4^3) > (27*3)
 
 #24 Is 12 divided by 4 equal to the square root of 9?  
- 
+ (12/4) == (sqrt(9))
 
 #25 Create a vector named fam that contains the name of each of your immediate family members
- 
+ fam <- c("randy", "abby", "ruthy")
+ fam
 
 #26 Create a vector named fam2 that repeats each family member's name 3x in a row
- 
+ fam2 <- c(rep(fam, each = 3))
+ fam2
 
 #27 Check the names of all objects you have created so far
- 
+ ls()
 
 #28 Does this list correspond to the values listed in the "Environment" tab in the upper right quadrant of RStudio?
-
+ #yes(I am not sure if this was a question I was supposed to answer in code?)
         
 #29 Remove the object fam2
- 
+ rm(fam2)
+ ls()
 
 #30 Check the name of all objects you have created again to see if fam2 has been removed
- 
+ ls()
 
 #31 What is the length of the vector fam2? 
- 
+ lenght(fam2) # this returns "Error: object 'fam2' not found" This makes sense since I
+ #just removed it. To find the length I would need to recreate fam2 as done through 
+ #typing  fam2 <- c(rep(fam, each = 3)) and then I would need to type length(fam2)
 
 #32 Is fam numeric?
- 
+ is.numeric(fam)
 
 #33 Is fam a factor?
- 
+ is.factor(fam)
 
 #34 What class is fam?
- 
+ clas(fam)
 
 #35 Convert fam2 to a factor
- 
+ #I will first be recreating fam2 so that there is something to convert.
+ fam2 <- c(rep(fam, each = 3))
+ factor(fam2)
 #36 Create an object named age that has the age in years for each family member
  
 #37 Create an object named work that has each family member's job
