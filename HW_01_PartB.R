@@ -65,7 +65,7 @@ D
  mean(A) - median(B)
 
 #18 Remove row 4 from D
- D[-4]
+ D[-4] #fix
 
 #19 Generate a vector with a length of 8 that contains the numbers 8, 9, 10, 11 repeated 
  myvector <- c(rep(8:11, length.out = 8))
