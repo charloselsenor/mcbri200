@@ -109,7 +109,7 @@ D
  ls()
 
 #31 What is the length of the vector fam2? 
- lenght(fam2) # this returns "Error: object 'fam2' not found" This makes sense since I
+ length(fam2) # this returns "Error: object 'fam2' not found" This makes sense since I
  #just removed it. To find the length I would need to recreate fam2 as done through 
  #typing  fam2 <- c(rep(fam, each = 3)) and then I would need to type length(fam2)
 
@@ -120,36 +120,45 @@ D
  is.factor(fam)
 
 #34 What class is fam?
- clas(fam)
+ class(fam)
 
 #35 Convert fam2 to a factor
  #I will first be recreating fam2 so that there is something to convert.
  fam2 <- c(rep(fam, each = 3))
  factor(fam2)
 #36 Create an object named age that has the age in years for each family member
- 
+ age <- c(58, 60, 26)
+ age
 #37 Create an object named work that has each family member's job
- 
+ work <- c("IT", "Teacher", "Urban Planning")
+ work
 #38 Create an object named hobby that has each family member's hobby
- 
+ hobby <- c("Manufactured Spending", "Puzzles", "Pottery")
+ hobby
 #39 Create an object named hours that has each family members number of weekly hobby hours
+ hours <- c("6","5","3")
+ hours
  
 #40 Combine all family information into a single dataframe called fam_data
- 
+ fam_data <- data.frame(fam, age, work, hobby, hours)
+ fam_data
 #41 Rename the columns as name, age, job, hobby, time
- 
+ names(fam_data) <- c("name","age","job","hobby","time")
+ fam_data
 #42 Check the row names for fam_data using rownames()
- 
+ rownames(fam_data)
 #43 Assign family members' names as rownames for fam_data using rownames()
- 
+ rownames(fam_data) <- c("randy", "abby", "ruthy")
+ fam_data
 #44 What are the dimensions of fam_data?
+ dim(fam_data)
 
 #45 Now remove the column containing family members' names
- 
+ #not sure
 #46 What are the dimensions of fam_data now?
- 
+ dim(fam_data)
 #47 Extract row 2 of fam_data for the family member based on the name of their hobby
- 
+ fam_data[,2]
 #48 Extract row 3 of fam_data for the family member based on the name of their work
  
 #49 Remove the youngest family member and their associate data from fam_data
