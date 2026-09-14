@@ -65,7 +65,8 @@ D
  mean(A) - median(B)
 
 #18 Remove row 4 from D
- D[-4] #fix
+ D <- D[-4,] 
+ D
 
 #19 Generate a vector with a length of 8 that contains the numbers 8, 9, 10, 11 repeated 
  myvector <- c(rep(8:11, length.out = 8))
@@ -125,7 +126,7 @@ D
 #35 Convert fam2 to a factor
  #I will first be recreating fam2 so that there is something to convert.
  fam2 <- c(rep(fam, each = 3))
- factor(fam2)
+ fam2 <- as.factor(fam2)
 #36 Create an object named age that has the age in years for each family member
  age <- c(58, 60, 26)
  age
@@ -154,33 +155,46 @@ D
  dim(fam_data)
 
 #45 Now remove the column containing family members' names
- #not sure
+ fam_data <- fam_data[,-1]
+ fam_data
 #46 What are the dimensions of fam_data now?
  dim(fam_data)
 #47 Extract row 2 of fam_data for the family member based on the name of their hobby
- fam_data[,2]
+ fam_data[2,3]
 #48 Extract row 3 of fam_data for the family member based on the name of their work
- 
+ fam_data[3,2]
 #49 Remove the youngest family member and their associate data from fam_data
- 
+ fam_data <- fam_data[-3,]
+ fam_data
 #50 Create a matrix of zeros that has 10 rows and 15 columns called mat
- 
+ mat <- matrix(0, nrow = 10, ncol = 15)
+ mat
 #51 Add row names 1-10 and column names "Freshman", "Sophomore", "Junior" to the matrix
- 
+ mat <- matrix(0, nrow = 10, ncol = 15, dimnames=list(c(1,2,3,4,5,6,7,8,9,10),c("Freshman","Sophmore","Junior",1,2,3,4,5,6,7,8,9,10,11,12)))
+ mat
+ #help this feels wrong the question does not seem correctly worded for the column names!!!
 #52 Repopulation the matrix above with 7s
- 
+ mat <- matrix(7, nrow = 10, ncol = 15, dimnames=list(c(1,2,3,4,5,6,7,8,9,10),c("Freshman","Sophmore","Junior",1,2,3,4,5,6,7,8,9,10,11,12)))
+ mat
 #53 Multiple each row in mat by the value of its row number
+ mat*rnames 
+ #note that this does not save these values but that is not what is asking for in my interpretation
  
 #54 Create a character vector called species that contains cat, horse, capuchin monkey, blue morpho butterfly, and coral snake. 
 # Check to be sure it is a character vector.
- 
+ species <- c("cat", "horse", "capuchin monkey", "blue morpho butterfly", "coral snake")
+ species
+ is.character(species)
 #55 Create a numeric vector called abundance that contains the numbers 7, 2, 22, 45, 1, 8.
 # There are 7 cats, 2 horses, 22 capuchin monkeys, 45 blue morpho butterflies and 1 rattlesnake.
 # Check to be sure it is a numeric vector. 
- 
+ abundance <- c(7,2,22,45,1,8)
+ is.numeric(abundance)
 #56 Create a number vector called mass that specifies the average mass in kg for each animal in species. 
 # Horse = 400 kg, Cat = 10 kg, Rattlesnake = 2.3 kg, Blue morpho = 0.003, Capuchin monkey = 2.7 kg. 
- 
+ (mass <- c("cat" = 10, "horse" = 400, "rattlesnake" = 2.3, "blue morpho butterfly" = 0.003, "capuchin monkey" = 2.7)
+ mass
+ #is this what they are asking for? it messes up the dataframe as it has a different order
 #57 Create a dataframe called species_data that has abundance and mass information that corresponds to species. 
  
 #58 Extract the coral snake data
@@ -188,7 +202,7 @@ D
 #59 Create a new column of data in species_data called type that specifies whether each animal is domestic or wild
  
 #60 Examine the structure of species_data. Is species_data$type of class character? What class is it?
- 
+ class(species_data)
 #61  Convert the kg mass measurements into grams. Add a new column to species_data that has weights stored in grams
  
 #62 Extract rows of species_data for species with more than 20 individuals
