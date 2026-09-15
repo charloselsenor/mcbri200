@@ -258,7 +258,7 @@ daphnia[1:3, 3:4]   # subset
 
 # Your turn now:
 # Extract the length in mm from the first observation (i.e., first row of data) using only brackets
-# Extract the hatch success of the last observation (i.e., last row of data) using only brackets
+#  the hatch success of the last observation (i.e., last row of data) using only brackets
 #dim(" general vector" ) can be used to find the dimensions of the dataframe
 
 

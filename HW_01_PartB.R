@@ -188,23 +188,31 @@ D
 #55 Create a numeric vector called abundance that contains the numbers 7, 2, 22, 45, 1, 8.
 # There are 7 cats, 2 horses, 22 capuchin monkeys, 45 blue morpho butterflies and 1 rattlesnake.
 # Check to be sure it is a numeric vector. 
- abundance <- c(7,2,22,45,1,8)
+ abundance <- c(7,2,22,45,1)
  is.numeric(abundance)
+ # I deleted 8 bc it goes against the # below it and throws an error
 #56 Create a number vector called mass that specifies the average mass in kg for each animal in species. 
 # Horse = 400 kg, Cat = 10 kg, Rattlesnake = 2.3 kg, Blue morpho = 0.003, Capuchin monkey = 2.7 kg. 
- (mass <- c("cat" = 10, "horse" = 400, "rattlesnake" = 2.3, "blue morpho butterfly" = 0.003, "capuchin monkey" = 2.7)
+ mass <- c(10, 400, 2.7, 0.003, 2.3)
  mass
  #is this what they are asking for? it messes up the dataframe as it has a different order
 #57 Create a dataframe called species_data that has abundance and mass information that corresponds to species. 
- 
+ species_data <-data.frame(species, abundance, mass)
+ species_data
+
 #58 Extract the coral snake data
- 
+ species_data[5,1]
 #59 Create a new column of data in species_data called type that specifies whether each animal is domestic or wild
- 
+ species_data <- data.frame(species, abundance, mass, type = c("domestic","domestic","wild","wild","wild") )
+ species_data
+ type <- c("domestic","domestic","wild","wild","wild") # I do this to store type for when I need to add mass_kg later
 #60 Examine the structure of species_data. Is species_data$type of class character? What class is it?
- class(species_data)
+ class(species_data) #checks structure of species_data
+ class(species_data$type) #checks class of species_data$type and if it is a class at all simatanously
 #61  Convert the kg mass measurements into grams. Add a new column to species_data that has weights stored in grams
- 
+ mass_g <- c(mass*1000) #this is a conversion even though
+ mass_g
+ species_data <- data.frame(species, abundance, mass, mass_g, type)
 #62 Extract rows of species_data for species with more than 20 individuals
  
 #63 Extract rows of species_data for domestic species only
