@@ -11,31 +11,33 @@
 
 
 # Clear all objects from the environment.
-
+ rm(list=ls())
 
 # Check your current working directory.
-
-
+getfwd()
+list.files()
 # Change your working directory using setwd() to any folder on your computer.
-
+setwd("C:/Users/charl/Documents/IBIO 830 R DIRECTORY")
             
 # Confirm that the working directory has changed.
-
-            
+getwd()
+list.files()            
 # In the Files tab of RStudio, navigate to a folder of your choice and set it as the working directory.
 # This is a manual change so no code is needed
 
 # Confirm again that the working directory has changed.
-
+getwd()
+list.files
 
 # Create a character vector named animals with values "cat", "dog", "iguana", "parrot".
-
-
+animals <- c("cat","dog","iguana","parrot")
+animals
 # Convert all values of animals to upper case in a new object called animals2.
-
-
+animals2 <- toupper(animals)
+animals2
 # Convert all values of animals to lower case.
-
+animals <- tolower(animals)
+animals
 
 # Use paste() to combine each animal name with the word "species" into a new vector.
 
