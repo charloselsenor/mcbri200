@@ -177,7 +177,7 @@ D
  mat <- matrix(7, nrow = 10, ncol = 15, dimnames=list(c(1,2,3,4,5,6,7,8,9,10),c("Freshman","Sophmore","Junior",1,2,3,4,5,6,7,8,9,10,11,12)))
  mat
 #53 Multiple each row in mat by the value of its row number
- mat*rnames 
+ mat* rnames(mat)
  #note that this does not save these values but that is not what is asking for in my interpretation
  
 #54 Create a character vector called species that contains cat, horse, capuchin monkey, blue morpho butterfly, and coral snake. 
@@ -210,28 +210,42 @@ D
  class(species_data) #checks structure of species_data
  class(species_data$type) #checks class of species_data$type and if it is a class at all simatanously
 #61  Convert the kg mass measurements into grams. Add a new column to species_data that has weights stored in grams
- mass_g <- c(mass*1000) #this is a conversion even though
+ mass_g <- c(mass*1000) #this is a conversion even though it creates a new value rather than writing over the old one
+ #but I interpret the second sentnece as wanting to keep both the kg and the g measurements
  mass_g
  species_data <- data.frame(species, abundance, mass, mass_g, type)
 #62 Extract rows of species_data for species with more than 20 individuals
- 
+ species_data[species_data$abundance > 20,]
 #63 Extract rows of species_data for domestic species only
- 
-#64 Extract rows of species_data for the horse and coral snake
-#a) using species data
-#b) using mass
-#c) using abundance data
+ species_data[species_data$type == "wild", ]
 
+#64 Extract rows of species_data for the horse and coral snake
+ 
+#a) using species data
+ species_data[species_data$species == "horse" | species_data$species == "coral snake",]
+#b) using mass
+ horse_mass <- species_data$mass[species_data$species == "horse"]
+ coral_snake_mass <- species_data$mass[species_data$species == "coral snake"]
+ species_data[species_data$mass == horse_mass | species_data$mass == coral_snake_mass,] #assuming it wants mass in kg
+#c) using abundance data
+ horse_abundance <- species_data$abundance[species_data$species == "horse"]
+ coral_snake_abundance <- species_data$abundance[species_data$species == "coral snake"]
+ species_data[species_data$abundance == horse_abundance | species_data$abundance == coral_snake_abundance,]
 #65 Remove the horse observation from the data frame
+ species_data <- species_data[species_data$species != "horse",]
 
 #66 Using code, show if the type for capuchin monkey is the same as the type for coral snake (TRUE/FALSE)
+ species_data$type[species_data$species == "capuchin monkey"] == species_data$type[species_data$species == "coral snake"]
 
 #67 Using code, show if the mass for capuchin monkey is larger than the mass for cat (TRUE/FALSE)
-
+ species_data$mass[species_data$species == "capuchin monkey"] > species_data$mass[species_data$species == "cat"]
 #68 Create a new data frame called species_data2 that contains all information from species_data twice
-
+ species_data2 <- species_data[c(1,1,2,2,3,3,4,4),]
+ species_data2
 #69 Create a new data frame called species_data3 that contains all information from species_data and contains a second row with cat data
-
+ species_data3 <- species_data[c(1,1,2,3,4),]
+ species_data3
 #70 Remove the horse data from species_data3 
-
+ #its already been removed in #65, but if it had not been I would just use  species_data3 <- species_data3[species_data3$species != "horse",]
 #71 Identify duplicated rows of data in species_data3
+ duplicated(species_data3)
