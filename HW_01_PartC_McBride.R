@@ -40,7 +40,7 @@ animals <- tolower(animals)
 animals
 
 # Use paste() to combine each animal name with the word "species" into a new vector.
-
+new_animals <- paste(animals, "species", sep = " ")
 
 # Extract the first three characters of each element of animals.
 substr(animals, 1, 3)
@@ -75,7 +75,7 @@ factor(sizes)
 sizes <- ordered(sizes, levels=c("small", "medium", "large"))
 sizes
 # Extract the second element of sizes.
-sizes[2]
+sizes[2] 
 
 # Create a list called mylist that contains:
 # a) the vector animals
@@ -85,7 +85,7 @@ mylist <- list(animals, weights, sizes)
 mylist
 
 # Extract the second element of mylist.
-mylist[[2]]
+mylist[[2]]#I interpret the second element as being the second first order object inside the list, not the second element of the first first order object inside the list
 # Extract the third element of mylist and convert it to character.
 mylist[[3]]
 mylist[[3]] <- as.character(mylist[[3]])
@@ -110,14 +110,20 @@ dim(df2)
 colnames(df2) #I first tries df2[0,] but it had extraneous information
 
 # Load the list object y you created in the lecture for 02.1_Data_Structures.R from "Our_list.RData".
- 
+load("Our_list.RData") 
+ls() #shows that y has loaded
 # What are the names of the objects stored inside y?
-
+names(y)
 # Extract the element of y called "city".
- 
+ #I could not find an element of y called "city". I may be missing something but we did not. I will use the element "tree" as an example instead 
+y[[1]]
+#if i want to go a level further I would do.
+y$tree[[1]] #to get the elm object in the element tree
+
 # Extract the third row of the dataframe stored inside y.
- 
+y$daphnia[3,] #or
+y[[5]][3,]
 # Add a new element to y that contains the vector c("yes","no","maybe").
-
-
-
+new_element <- c("yes","no","maybe")
+y[[6]] <- new_element
+y
