@@ -14,7 +14,7 @@
  rm(list=ls())
 
 # Check your current working directory.
-getfwd()
+getwd()
 list.files()
 # Change your working directory using setwd() to any folder on your computer.
 setwd("C:/Users/charl/Documents/IBIO 830 R DIRECTORY")
@@ -43,56 +43,72 @@ animals
 
 
 # Extract the first three characters of each element of animals.
-
+substr(animals, 1, 3)
 
 # Count the number of characters in each element of animals.
-
-
+nchar(animals)
 # Replace all "a" with "A" in the animals vector.
-
+animals <- gsub("a", "A", animals)
+animals
 # Identify which elements of animals contain the letter "o".
-
+animals[c(2,4)] #We have not learned a way to automate the search yet. Stackexchange said to use grep but we have not learned that.
 # Subset only the elements of animals that contain "o".
-
+substr(animals[c(2,4)], 0, 6) #same reasoning as above
 # Create a vector called weights with values 12, NA, 18, NA, 25.
-
+weights <- c(12, NA, 18, NA, 25)
+weights
 # Find which elements of weights are missing.
-
+is.na(weights) #produced value statements for each element counts as finding in my opinion.
 # Calculate the mean of weights while ignoring missing values.
-
+mean(weights, na.rm = TRUE)
 # Remove all missing values from weights.
-
+weights <- as.numeric(na.omit(weights))
+weights
 # How many elements are left after removing missing values?
-
+length(weights)
 # Create a factor vector named sizes with values "small", "medium", "large", "small".
-
+sizes <- c("small", "medium", "large", "small")
+factor(sizes)
 # What are the levels of sizes? (use code to show answer)
-
+factor(sizes)
 # Convert sizes into an ordered factor with the order: "small", "medium", "large".
-
+sizes <- ordered(sizes, levels=c("small", "medium", "large"))
+sizes
 # Extract the second element of sizes.
+sizes[2]
 
 # Create a list called mylist that contains:
 # a) the vector animals
 # b) the vector weights
 # c) the factor sizes
+mylist <- list(animals, weights, sizes)
+mylist
 
 # Extract the second element of mylist.
-
+mylist[[2]]
 # Extract the third element of mylist and convert it to character.
+mylist[[3]]
+mylist[[3]] <- as.character(mylist[[3]])
+is.character(mylist[[3]])
 
 # Add a new element called note with value "practice complete" to mylist.
-
+note <- c("practice complete")
+note
+mylist[[4]] <- note
+mylist
 # Use the $ operator to extract note from mylist.
-
+names(mylist) <- c("animals", "weights", "sizes", "note") #had to name it first, initally forgot that about lists
+mylist$note
 # Clear all objects from the environment.
- 
+rm(list=ls()) 
+ls()
 # Import "juncos.csv" created in 02.2_Data_Wrangling.R as a new object named df2.
- 
+df2 <- read.csv(file="juncos.csv")
 # What are the dimensions of df2?
- 
+dim(df2) 
 # Extract the names of the columns in df2.
- 
+colnames(df2) #I first tries df2[0,] but it had extraneous information
+
 # Load the list object y you created in the lecture for 02.1_Data_Structures.R from "Our_list.RData".
  
 # What are the names of the objects stored inside y?
