@@ -41,6 +41,7 @@ animals
 
 # Use paste() to combine each animal name with the word "species" into a new vector.
 new_animals <- paste(animals, "species", sep = " ")
+new_animals
 
 # Extract the first three characters of each element of animals.
 substr(animals, 1, 3)
@@ -112,6 +113,7 @@ colnames(df2) #I first tries df2[0,] but it had extraneous information
 # Load the list object y you created in the lecture for 02.1_Data_Structures.R from "Our_list.RData".
 load("Our_list.RData") 
 ls() #shows that y has loaded
+
 # What are the names of the objects stored inside y?
 names(y)
 # Extract the element of y called "city".
